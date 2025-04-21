@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards Page</title>
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <% if(success.length >0){ %>
+        <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md bg-blue-500">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= success %>
+            </span>
+        </div>
+    <%}%>
+
+    <div class="flex mt-10 justify-center items-center text-4xl font-bold">
+        <h1>Create Blog</h1>
+    </div>
+    
+    <div id="card">
+        <form action="/blog/create" method="POST" enctype="multipart/form-data" class="mt-10 text-3xl px-8">
+            <h3>Create Title</h3>
+            <input class="mt-2 rounded-md shadow-lg" name="title" type="text" placeholder="Title">
+        
+            <h3 class="mt-4">Description</h3>
+            <textarea class="mt-2 rounded-md shadow-lg" name="description" cols="30" rows="5"></textarea>
+        
+            <h3 class="mt-4">Image</h3>
+            <input class="mt-2 rounded-md" type="file" name="image" accept="image">
+        
+            <input class="flex justify-start mt-4 px-5 py-2 rounded bg-blue-500 text-white cursor-pointer" type="submit"
+            value="Create">
+        </form>
+        
+    </div>
+</body>
+</html>

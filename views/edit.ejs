@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards Page</title>
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex mt-10 justify-center items-center text-4xl font-bold">
+        <h1>Edit Blog</h1>
+    </div>
+    
+    <div id="card">
+        <form action="/edit/<%= blog._id %>" method="POST" enctype="multipart/form-data" class="mt-10 text-3xl px-8">
+            <h3>Edit Title</h3>
+            <input class="mt-2 rounded-md shadow-lg" name="title" type="text" placeholder="Title" value="<%= blog.title %>">
+        
+            <h3 class="mt-4">Description</h3>
+            <textarea class="mt-2 rounded-md shadow-lg" name="description" cols="30" rows="5"><%= blog.description %></textarea>
+
+            <% if (imageBase64) { %>
+                <img src="data:image/jpeg;base64,<%= imageBase64 %>" alt="Current Image" class="w-48 h-auto rounded shadow mb-4 mt-2"/>
+            <% } %>
+        
+            <h3 class="mt-4">Image</h3>
+            <input class="mt-2 rounded-md" type="file" name="image" accept="image">
+        
+            <input class="flex justify-start mt-4 px-5 py-2 rounded bg-yellow-500 text-white cursor-pointer" type="submit"
+            value="Update">
+        </form>
+        
+    </div>
+</body>
+</html>
